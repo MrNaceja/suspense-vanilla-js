@@ -1,0 +1,16 @@
+{
+  "name": "suspense-vanilla-js",
+  "version": "1.0.0",
+  "main": "./src/main.js",
+  "scripts": {
+    "generate": "npx webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "MrNaceja",
+  "license": "ISC",
+  "description": "Suspends a container element with a fallback until the slow element is loaded",
+  "devDependencies": {
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
