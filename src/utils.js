@@ -20,16 +20,23 @@ export const delay = (time) => new Promise((ok) => setTimeout(ok, time));
  * Checks if subject is one of types.
  * @param {any} subject
  * @param {any[]} types
+ * @param {boolean} allSameType
  * @returns {Boolean}
  */
-export const isOneOfTypes = (subject, types) => {
+export const isOneOfTypes = (subject, types, allSameType = false) => {
   let checks = false;
-  types.some((T) => {
-    if (subject instanceof Array) {
-      subject.some((s) => (checks &&= s instanceof T));
-      return;
+  if (!Array.isArray(subject)) {
+    subject = [subject];
+  }
+  subject.forEach((s) => {
+    s = Object(s); // Grant primitive proto instance validation
+    if (allSameType) {
+      checks &&= types.some((T) => s instanceof T);
+    } else {
+      types.forEach((T) => {
+        checks ||= s instanceof T;
+      });
     }
-    checks = subject instanceof T;
   });
   return Boolean(checks);
 };
