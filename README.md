@@ -33,7 +33,7 @@ Você também pode baixar o código-fonte diretamente do repositório e incluir 
 
 ```js
 const loadingIndicator = document.createElement("h1");
-fallback.innerText = "Loading...";
+loadingIndicator.innerText = "Loading...";
 
 const lazyListElement = async () => {
   const list = document.createElement("ul");
