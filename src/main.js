@@ -3,7 +3,7 @@ import { isOneOfTypes } from "./utils.js";
 /**
  * Suspends a container element with a fallback until the slow element is loaded.
  * @param {PropsSuspense} props
- * @return {HtmlElement}
+ * @return {HtmlElement} Suspensed Container
  * @throws {TypeError}
  */
 export const Suspense = ({
@@ -63,13 +63,14 @@ export const Suspense = ({
 window.Suspense = Suspense;
 
 /**
- * @typedef {{
- *  container?: HTMLElement,
- *  fallback: HTMLElement,
- *  lazyElement: () => Promise<HTMLElement[] | Node[]>|Promise<HTMLElement | Node>,
- *  onSuspensionStart: () => void
- *  onSuspensionEnd?: () => void
- *  replace?: boolean,
- *  target: HTMLElement
- * }} PropsSuspense
+ * @typedef {Object} PropsSuspense
+ * @property {HTMLElement}       container   - DOM Suspense container element, if not provides will be created.
+ * @property {HTMLElement?}      target      - DOM Target Element to append suspensed element.
+ * @property {HTMLElement}       fallback    - DOM Element to display while lazy element is loading.
+ * @property {LazyElementLoader} lazyElement - Promise or Function (async to return promise) returning lazy element, in this function, data can be fetched from an API to assemble a listing, for example.
+ * @property {boolean}           replace     - Indicates that lazy content element(s) loading should replace the suspense container.
+ * @property {Function}         onSuspensionStart - Callback function runned on suspension start (before fallback element append on container).
+ * @property {Function}         onSuspensionStart - Callback function runned on suspension end (after lazy element(s) appended on container).
+ *
+ * @typedef {() => Promise<HtmlElement|HtmlElement[]> | Promise<HtmlElement|HtmlElement[]>} LazyElementLoader
  */
