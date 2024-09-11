@@ -6,15 +6,17 @@ import { isOneOfTypes } from "./utils.js";
  * @return {HtmlElement} Suspensed Container
  * @throws {TypeError}
  */
-export const Suspense = ({
-  container,
-  fallback,
-  lazyElement,
-  replace = false,
-  onSuspensionStart,
-  onSuspensionEnd,
-  target,
-}) => {
+export const Suspense = (props) => {
+  const {
+    container,
+    fallback,
+    lazyElement,
+    replace = false,
+    onSuspensionStart,
+    onSuspensionEnd,
+    target,
+  } = props;
+
   if (!isOneOfTypes(lazyElement, [Promise, Function])) {
     throw new TypeError(
       "lazyElement should be promise return element(s) or async function returning element(s)."
@@ -40,7 +42,7 @@ export const Suspense = ({
   }
 
   lazyElement.then((element) => {
-    if (!isOneOfTypes(element, [Element, Node])) {
+    if (!isOneOfTypes(element, [Element, Node], true)) {
       throw new TypeError(
         "lazyElement should return DOM Elements (Element or Node)."
       );
