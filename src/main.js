@@ -7,7 +7,7 @@ import { isOneOfTypes } from "./utils.js";
  * @throws {TypeError}
  */
 export const Suspense = (props) => {
-  const {
+  let {
     container,
     fallback,
     lazyElement,
