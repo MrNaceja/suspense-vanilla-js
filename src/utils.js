@@ -27,9 +27,7 @@ export const isOneOfTypes = (subject, types, allSameType = false) => {
   if (!Array.isArray(subject)) {
     subject = [subject];
   }
-
-  subject = subject.map((s) => Object(s)); // To correct primirive proto validation
-
+  subject = subject.map((s) => Object(s)); // To correct primitive proto validation
   if (allSameType) {
     const T = types.shift();
     return subject.every((s) => s instanceof T);
