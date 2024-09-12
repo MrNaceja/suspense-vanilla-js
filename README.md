@@ -22,7 +22,7 @@ Existem duas formas de utilizar o **SuspenseJS** em seu projeto:
 Você pode incluir **SuspenseJS** diretamente em seu projeto através da CDN do jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/MrNaceja/suspense-vanilla-js/dist/suspense.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/MrNaceja/suspense-vanilla-js@latest/dist/suspense.js"></script>
 ```
 
 ### 2. **Baixando o Código**
