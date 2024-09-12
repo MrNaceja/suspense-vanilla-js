@@ -30,6 +30,7 @@ Você pode incluir **SuspenseJS** diretamente em seu projeto através da CDN do 
 Você também pode baixar o código-fonte diretamente do repositório e incluir o arquivo JavaScript no seu projeto realizando as modificações necessárias.
 
 ## 🔨 Como usar
+![Demonstração de uso (CDN)](./demo.gif)
 
 ```js
 const loadingIndicator = document.createElement("h1");
